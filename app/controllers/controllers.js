@@ -1,5 +1,5 @@
 app.controller('galleryCtrl', function($scope) {
-    $scope.imageStorage = '/img/angular_apps/gallery/';
+    $scope.imageStorage = 'img/';
     
     /* Set the full right-side image for the first gallery show up */
     $scope.fullImage = 0;
