@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-lg-12">
+        <h2>IMAGE GALLERY<br><small>This simplest image gallery powered with AngularJS without any jQuery ang other injections. No matter how it looks. It works fine. You can always change the design.</small></h2>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <ul class="list-inline angular-image-gallery">   
+            <li ng-repeat="image in images">
+            <figure>
+               <img ng-src="{{ image.thumb }}" alt="{{ image.title }}" ng-click="setFullImage($index)" ng-class="{ active: fullImage === $index }">
+            </figure>
+            
+            </li>
+        </ul>
+        <hr class="hidden-lg">
+        <button class="btn btn-default btn-xs" ng-click="navSetImage(fullImage, 'prev')">Previous</button>
+        <button class="btn btn-default btn-xs" ng-click="navSetImage(fullImage, 'next')">Next</button>
+        <hr class="hidden-lg">
+    </div>
+    <div class="col-lg-6">
+      <figure>
+          <img ng-src="{{ images[fullImage].src }}" alt="{{ images[fullImage].title }}" class="img-responsive">
+          <figcaption><cite ng-bind="images[fullImage].title"></cite></figcaption>
+      </figure>
+    </div>
+</div>
