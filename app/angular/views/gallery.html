@@ -1,18 +1,20 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-12">
-			<h1 class="small">ANGULAR IMAGE GALLERY</h1>
-			<h2 class="small">&lt;768px&nbsp;&mdash; SWIPE MODE</h2>
+			<h1 class="small">ГАЛЕРЕЯ ИЗОБРАЖЕНИЙ НА ANGULAR JS</h1>
+			<h2 class="small">&lt; 768px&nbsp;&mdash; ТОЛЬКО СВАЙП МОД</h2>
 			<ul class="list-inline image-gallery">   
 				<li ng-repeat="image in images" class="image-gallery__item">
-				   <img ng-src="{{ image.thumb }}" alt="{{ image.title }}" ng-click="setFullImage($index)" class="image-gallery__img" ng-class="{ active: fullImage === $index }">
+				   <img ng-src="{{ image.thumb }}" alt="{{ image.title }}" ng-click="setFullImage($index); showBack()" class="image-gallery__img" ng-class="{ active: fullImage === $index }">
 				</li>
 			</ul>
 		</div>
 	</div>
 	<div class="full-image-wrapper" ng-click="wrapperShow = !wrapperShow" ng-show="!wrapperShow"></div>
-	<img ng-src="{{ images[fullImage].src }}" alt="{{ images[fullImage].title }}" class="image-gallery__full-image" ng-swipe-left="navSetImage(fullImage, 'next')" ng-swipe-right="navSetImage(fullImage, 'prev')" ng-show="!wrapperShow" id="fullImg">
-	<div class="image-gallery__nav_prev" ng-click="navSetImage(fullImage, 'prev')" ng-show="!wrapperShow">&#8592;</div>
-	<div class="image-gallery__nav_next" ng-click="navSetImage(fullImage, 'next')" ng-show="!wrapperShow">&#8594;</div>
+	<div id="toPlaceFullImages">
+		<img ng-repeat="fullImage in images" ng-src="{{ fullImage.src }}" alt="{{ fullImage.title }}" class="image-gallery__full-image" ng-swipe-left="setFullImage(fullImageIndex, 'next')" ng-swipe-right="setFullImage(fullImageIndex, 'prev')" ng-show="!wrapperShow">
+	</div>
+	<div class="image-gallery__nav_prev" ng-click="setFullImage(fullImageIndex, 'prev')" ng-show="!wrapperShow">&#8592;</div>
+	<div class="image-gallery__nav_next" ng-click="setFullImage(fullImageIndex, 'next')" ng-show="!wrapperShow">&#8594;</div>
 </div>
-<p ng-bind="images[fullImage].title" class="image-gallery__title" ng-show="!wrapperShow"></p>
+<p ng-bind="images[fullImageIndex].title" class="image-gallery__title" ng-show="!wrapperShow"></p>

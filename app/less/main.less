@@ -6,9 +6,13 @@
     padding-top: 30px;
 }
 
+.image-gallery__full-images-wrapper {
+    display: block;
+}
+
 .image-gallery__title {
     color: fadeout(white, 30%);
-    position: absolute;
+    position: fixed;
     bottom: 30px;
     left: 30px;
     transition: @trans;
@@ -48,24 +52,30 @@
 }
 
 .image-gallery__full-image {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
     margin: auto;
     max-height: 95%;
-    max-width: 97%;
+    max-width: 95%;
     box-shadow: @shadow;
     opacity: 1;
-    transition: .5s linear all;
+    display: none;
+    transition: @trans;
 
     &.ng-hide-add, &.ng-hide-remove {
         transition: .5s linear all;
     }
 
     &.ng-hide {
-        display: none;
+        opacity: 0;
+    }
+
+    &.active {
+        display: block;
+        transition: @trans;
     }
 }
 

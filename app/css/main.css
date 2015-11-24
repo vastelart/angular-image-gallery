@@ -1,9 +1,12 @@
 .image-gallery {
   padding-top: 30px;
 }
+.image-gallery__full-images-wrapper {
+  display: block;
+}
 .image-gallery__title {
   color: rgba(255, 255, 255, 0.7);
-  position: absolute;
+  position: fixed;
   bottom: 30px;
   left: 30px;
   transition: 0.5s;
@@ -39,24 +42,29 @@
   opacity: 0;
 }
 .image-gallery__full-image {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
   margin: auto;
   max-height: 95%;
-  max-width: 97%;
+  max-width: 95%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
   opacity: 1;
-  transition: .5s linear all;
+  display: none;
+  transition: 0.5s;
 }
 .image-gallery__full-image.ng-hide-add,
 .image-gallery__full-image.ng-hide-remove {
   transition: .5s linear all;
 }
 .image-gallery__full-image.ng-hide {
-  display: none;
+  opacity: 0;
+}
+.image-gallery__full-image.active {
+  display: block;
+  transition: 0.5s;
 }
 .image-gallery__item {
   cursor: pointer;
