@@ -1,0 +1,28 @@
+{
+  "name": "authorgallery",
+  "description": "angular.js image gallery",
+  "main": "gulpfile.js",
+  "authors": [
+    "Roman Spazm"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "image",
+    "gallery"
+  ],
+  "homepage": "https://github.com/vastelart/angular-image-gallery",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-touch": "~1.4.8",
+    "angular-animate": "~1.4.8"
+  }
+}
