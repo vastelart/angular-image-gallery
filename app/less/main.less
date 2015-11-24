@@ -1,0 +1,131 @@
+@half-black: rgba(0,0,0,.8);
+@trans: .5s;
+@shadow: 0 0 10px @half-black;
+
+.image-gallery {
+    padding-top: 30px;
+}
+
+.image-gallery__title {
+    color: fadeout(white, 30%);
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    transition: @trans;
+    z-index: 500;
+    padding: 15px;
+    background: fadeout(@half-black, 50%);
+
+    &.ng-hide-add, &.ng-hide-remove {
+        transition: .5s linear all;
+    }
+
+    &.ng-hide {
+        display: none;
+    }
+}
+
+.full-image-wrapper {
+    /*display: none !important;*/
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: @half-black;
+    padding: 30px;
+    opacity: 1;
+    overflow: hidden;
+
+    &.ng-hide-add, &.ng-hide-remove {
+        transition: .6s linear all;
+    }
+
+    &.ng-hide {
+        line-height: 0;
+        opacity: 0;
+    }
+}
+
+.image-gallery__full-image {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-height: 95%;
+    max-width: 97%;
+    box-shadow: @shadow;
+    opacity: 1;
+    transition: .5s linear all;
+
+    &.ng-hide-add, &.ng-hide-remove {
+        transition: .5s linear all;
+    }
+
+    &.ng-hide {
+        display: none;
+    }
+}
+
+.image-gallery__item {
+    cursor: pointer;
+    padding: 0 !important;
+    margin: 0 10px 10px 0;
+    transition: @trans;
+
+    &.active, &:hover {
+        box-shadow: 0 0 5px @half-black;
+        transition: @trans;
+    }
+}
+
+.image-gallery__nav_prev,
+.image-gallery__nav_next {
+    position: absolute;
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    background: fadeout(@half-black, 50%);
+    border-radius: 50%;
+    color: rgba(255,255,255,.7);
+    padding: 13px;
+    text-align: center;
+    cursor: pointer;
+
+    &.ng-hide-add, &.ng-hide-remove {
+        transition: .5s linear all;
+    }
+
+    &.ng-hide {
+        line-height: 0;
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-gallery__nav_prev,
+    .image-gallery__nav_next {
+        /*top: 15px;
+        width: 30%;
+        border-radius: 0;
+        box-shadow: none;*/
+        display: none;
+    }
+
+    .image-gallery__title {
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin-bottom: 0;
+    }
+}
+
+.image-gallery__nav_prev {
+    left: 30px;
+}
+
+.image-gallery__nav_next {
+    right: 30px;
+}
